@@ -107,7 +107,7 @@ export function hasOverlappingContract(
 
       if (
         contract.status ===
-        CONTRACT_STATUS.CANCELLED
+        CONTRACT_STATUS.TERMINATED
       ) {
         return false;
       }
@@ -136,9 +136,9 @@ export function determineContractStatus(
 ) {
   if (
     contract.status ===
-    CONTRACT_STATUS.CANCELLED
+    CONTRACT_STATUS.TERMINATED
   ) {
-    return CONTRACT_STATUS.CANCELLED;
+    return CONTRACT_STATUS.TERMINATED;
   }
 
   const today =

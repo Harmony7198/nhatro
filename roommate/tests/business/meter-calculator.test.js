@@ -10,7 +10,7 @@ import {
     calculateWaterUsage,
     detectAbnormalUsage,
     getPreviousMonthKey
-} from "../../../src/business/meter-calculator.js";
+} from "../../src/business/meter-calculator.js";
 
 describe("MeterCalculator", () => {
 

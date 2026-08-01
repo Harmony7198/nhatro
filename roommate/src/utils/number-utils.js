@@ -77,15 +77,26 @@ export function isNonNegativeNumber(value) {
  * @throws {Error}
  */
 export function clamp(value, min, max) {
-  const safeValue = toSafeNumber(value);
-  const safeMin = toSafeNumber(min);
-  const safeMax = toSafeNumber(max);
-
-  if (safeMin > safeMax) {
-    throw new Error("min không được lớn hơn max.");
+  if (
+    !isNumber(value) ||
+    !isNumber(min) ||
+    !isNumber(max)
+  ) {
+    throw new Error(
+      "Các tham số phải là number."
+    );
   }
 
-  return Math.min(Math.max(safeValue, safeMin), safeMax);
+  if (min > max) {
+    throw new Error(
+      "min không được lớn hơn max."
+    );
+  }
+
+  return Math.min(
+    Math.max(value, min),
+    max
+  );
 }
 
 /**
@@ -134,6 +145,67 @@ export function sumNumbers(values) {
   }
 
   return values.reduce((total, value) => {
-    return total + toSafeNumber(value);
+    if (!isNumber(value)) {
+      throw new Error(
+        "Mọi phần tử phải là number."
+      );
+    }
+
+    return total + value;
   }, 0);
+}
+
+/**
+ * Kiểm tra có phải number hợp lệ hay không.
+ *
+ * @param {*} value
+ * @returns {boolean}
+ */
+export function isNumber(value) {
+  return (
+    typeof value === "number" &&
+    Number.isFinite(value)
+  );
+}
+
+/**
+ * Chuyển sang number.
+ *
+ * Alias của toSafeNumber.
+ *
+ * @param {number|string} value
+ * @returns {number}
+ */
+export function toNumber(value) {
+  return toSafeNumber(value);
+}
+
+/**
+ * Tính tổng.
+ *
+ * Alias của sumNumbers.
+ *
+ * @param {number[]} values
+ * @returns {number}
+ */
+export function sum(values) {
+  return sumNumbers(values);
+}
+
+/**
+ * Tính trung bình.
+ *
+ * @param {number[]} values
+ * @returns {number}
+ */
+export function average(values) {
+  if (!Array.isArray(values)) {
+    throw new Error("Đầu vào phải là mảng.");
+  }
+
+  if (values.length === 0) {
+    return 0;
+  }
+
+  return sumNumbers(values) / values.length;
 }

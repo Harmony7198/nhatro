@@ -8,10 +8,6 @@ import {
   CONTRACT_STATUS
 } from "../constants/statuses.js";
 
-import {
-  isDateRangeOverlap,
-  hasOverlappingContract
-} from "./contract-utils.js";
 
 import {
   isValidDate,
@@ -20,7 +16,7 @@ import {
 
 import {
   isNonNegativeNumber
-} from "../utils/validation-utils.js";
+} from "../utils/number-utils.js";
 
 /**
  * Validate hợp đồng.
@@ -113,16 +109,40 @@ export function validateContract(
 
   }
 
+for (const item of existingContracts) {
+
   if (
-    hasOverlappingContract(
-      contract,
-      existingContracts
+    item.id === contract.id
+  ) {
+    continue;
+  }
+
+  if (
+    item.roomId !== contract.roomId
+  ) {
+    continue;
+  }
+
+  if (
+    item.status === CONTRACT_STATUS.CANCELLED
+  ) {
+    continue;
+  }
+
+  if (
+    isDateRangeOverlap(
+      item.startDate,
+      item.endDate,
+      contract.startDate,
+      contract.endDate
     )
   ) {
     throw new Error(
       "Đã tồn tại hợp đồng trùng thời gian của phòng này."
     );
   }
+
+}
 
 }
 

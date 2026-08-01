@@ -94,15 +94,20 @@ export function validateRentPrice(rentPrice) {
  * @throws {Error}
  */
 export function validateArea(area) {
-  if (typeof area !== "number" || Number.isNaN(area)) {
-    throw new Error("Diện tích phải là số.");
-  }
 
-  if (area <= 0) {
-    throw new Error("Diện tích phải lớn hơn 0.");
-  }
+    // optional field
+    if (area == null || area === "") {
+        return;
+    }
 
-  return area;
+    if (typeof area !== "number" || Number.isNaN(area)) {
+        throw new Error("Diện tích phải là số.");
+    }
+
+    if (area <= 0) {
+        throw new Error("Diện tích phải lớn hơn 0.");
+    }
+
 }
 
 /**
@@ -113,22 +118,30 @@ export function validateArea(area) {
  * @throws {Error}
  */
 export function validateMaxOccupants(maxOccupants) {
-  if (
-    typeof maxOccupants !== "number" ||
-    Number.isNaN(maxOccupants)
-  ) {
-    throw new Error("Số người tối đa phải là số.");
-  }
 
-  if (!Number.isInteger(maxOccupants)) {
-    throw new Error("Số người tối đa phải là số nguyên.");
-  }
+    // optional field
+    if (
+        maxOccupants == null ||
+        maxOccupants === ""
+    ) {
+        return;
+    }
 
-  if (maxOccupants <= 0) {
-    throw new Error("Số người tối đa phải lớn hơn 0.");
-  }
+    if (
+        typeof maxOccupants !== "number" ||
+        Number.isNaN(maxOccupants)
+    ) {
+        throw new Error(
+            "Số người tối đa phải là số."
+        );
+    }
 
-  return maxOccupants;
+    if (maxOccupants <= 0) {
+        throw new Error(
+            "Số người tối đa phải lớn hơn 0."
+        );
+    }
+
 }
 
 /**

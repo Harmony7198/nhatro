@@ -28,6 +28,18 @@ export function isEmpty(value) {
 }
 
 /**
+ * Alias của isEmpty.
+ *
+ * Giữ tương thích với các module cũ.
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function isBlank(value) {
+  return isEmpty(value);
+}
+
+/**
  * Kiểm tra chuỗi không rỗng.
  *
  * @param {unknown} value

@@ -108,9 +108,16 @@ export function getAll(key) {
  * @throws {Error}
  */
 export function getById(key, id) {
-  if (typeof id !== "string" || !id.trim()) {
-    throw new Error("ID không hợp lệ.");
-  }
+if (
+  typeof newItem.id !== "string" ||
+  !newItem.id.trim()
+) {
+  newItem.id =
+    globalThis.crypto?.randomUUID?.() ??
+    `id-${Date.now()}-${Math.random()
+      .toString(36)
+      .slice(2)}`;
+}
 
   const items = read(key);
 
@@ -147,47 +154,91 @@ export const storageInternal = Object.freeze({
 });
 
 /**
- * Tạo mới một bản ghi.
+ * Sinh ID đơn giản.
  *
- * Tự động thêm:
- * - createdAt
- * - updatedAt
+ * @returns {string}
+ */
+function generateId() {
+  return (
+    Date.now().toString(36) +
+    Math.random().toString(36).slice(2, 8)
+  );
+}
+
+/**
+ * Tạo mới một bản ghi.
  *
  * @param {string} key
  * @param {Object} item
  * @returns {Object}
- *
- * @throws {Error}
  */
 export function create(key, item) {
-  if (item === null || typeof item !== "object" || Array.isArray(item)) {
+
+  if (
+    item === null ||
+    typeof item !== "object" ||
+    Array.isArray(item)
+  ) {
     throw new Error("Item phải là object.");
   }
 
-  const items = storageInternal.read(key);
+  const items =
+    storageInternal.read(key);
 
-  const newItem = storageInternal.deepClone(item);
+  const newItem =
+    storageInternal.deepClone(item);
 
-  if (typeof newItem.id !== "string" || !newItem.id.trim()) {
-    throw new Error("Item phải có ID hợp lệ.");
+  // Nếu chưa có ID thì tự sinh
+  if (
+    typeof newItem.id !== "string" ||
+    !newItem.id.trim()
+  ) {
+
+    let id;
+
+    do {
+      id = generateId();
+    } while (
+      items.some(
+        (value) => value.id === id
+      )
+    );
+
+    newItem.id = id;
+
+  } else {
+
+    const duplicated =
+      items.some(
+        (value) =>
+          value.id === newItem.id
+      );
+
+    if (duplicated) {
+      throw new Error(
+        `ID "${newItem.id}" đã tồn tại.`
+      );
+    }
+
   }
 
-  const duplicated = items.some((value) => value.id === newItem.id);
-
-  if (duplicated) {
-    throw new Error(`ID "${newItem.id}" đã tồn tại.`);
-  }
-
-  const now = storageInternal.getCurrentIsoDateTime();
+  const now =
+    storageInternal.getCurrentIsoDateTime();
 
   newItem.createdAt ??= now;
   newItem.updatedAt = now;
 
   items.push(newItem);
 
-  storageInternal.write(key, items);
+  storageInternal.write(
+    key,
+    items
+  );
 
-  return storageInternal.deepClone(newItem);
+  return storageInternal.deepClone(
+    newItem
+  );
+
 }
 
 /**

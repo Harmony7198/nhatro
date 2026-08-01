@@ -262,34 +262,24 @@ function normalizeStatus(
  * @returns {Object}
  */
 export function createContract(data) {
+  const room = RoomService.getRoomById(data.roomId);
+
   const contract = normalizeStatus({
-    ...data
+    ...data,
+    rentPrice:
+      Number.isFinite(Number(data.rentPrice))
+        ? Number(data.rentPrice)
+        : room.rentPrice
   });
 
   validateBeforeSave(contract);
 
   ensureNoOverlap(contract);
 
-  const room = RoomService.getRoomById(contract.roomId);
-
-  // Lưu lại giá thuê tại thời điểm ký
-  if (
-    contract.rentPrice == null ||
-    Number.isNaN(Number(contract.rentPrice))
-  ) {
-    contract.rentPrice = room.rentPrice;
-  }
-
-  try {
-    const created = StorageService.create(
-      STORAGE_KEYS.CONTRACTS,
-      contract
-    );
-
-    return created;
-  } catch (error) {
-    throw error;
-  }
+  return StorageService.create(
+    STORAGE_KEYS.CONTRACTS,
+    contract
+  );
 }
 
 /**

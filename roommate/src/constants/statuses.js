@@ -2,9 +2,17 @@
  * Trạng thái phòng
  */
 export const ROOM_STATUS = Object.freeze({
-  AVAILABLE: "available",
-  OCCUPIED: "occupied",
-  MAINTENANCE: "maintenance"
+
+    AVAILABLE: "available",
+
+    OCCUPIED: "occupied",
+
+    REPAIR: "repair",
+
+    INACTIVE: "inactive",
+
+    MAINTENANCE: "maintenance"
+
 });
 
 export const ROOM_STATUS_LABEL = Object.freeze({
@@ -30,9 +38,15 @@ export const TENANT_STATUS_LABEL = Object.freeze({
  * Trạng thái hợp đồng
  */
 export const CONTRACT_STATUS = Object.freeze({
-  ACTIVE: "active",
-  EXPIRED: "expired",
-  TERMINATED: "terminated"
+
+    PENDING: "pending",
+
+    ACTIVE: "active",
+
+    EXPIRED: "expired",
+
+    TERMINATED: "terminated"
+
 });
 
 export const CONTRACT_STATUS_LABEL = Object.freeze({
@@ -45,10 +59,17 @@ export const CONTRACT_STATUS_LABEL = Object.freeze({
  * Trạng thái hóa đơn
  */
 export const INVOICE_STATUS = Object.freeze({
-  UNPAID: "unpaid",
-  PARTIALLY_PAID: "partiallyPaid",
-  PAID: "paid",
-  OVERDUE: "overdue"
+
+    UNPAID: "unpaid",
+
+    PARTIAL: "partial",
+
+    PAID: "paid",
+
+    OVERDUE: "overdue",
+
+    CANCELLED: "cancelled"
+
 });
 
 export const INVOICE_STATUS_LABEL = Object.freeze({

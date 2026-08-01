@@ -70,9 +70,6 @@ function validateDate(
  *
  * invoice:
  * {
- *   roomId,
- *   monthKey,
- *   issueDate,
  *   dueDate,
  *   items,
  *   discount,
@@ -95,36 +92,19 @@ export function validateInvoice(
     );
   }
 
-  if (
-    !invoice.roomId
-  ) {
-    throw new Error(
-      "Phòng là bắt buộc."
-    );
-  }
 
-  if (
-    !invoice.monthKey
-  ) {
-    throw new Error(
-      "Tháng là bắt buộc."
-    );
-  }
+if (invoice.issueDate) {
 
-  validateDate(
-    invoice.issueDate,
-    "Ngày lập"
-  );
+    if (
+        new Date(invoice.dueDate) <
+        new Date(invoice.issueDate)
+    ) {
+        throw new Error(
+            "Hạn thanh toán phải sau hoặc bằng ngày lập."
+        );
+    }
 
-  validateDate(
-    invoice.dueDate,
-    "Hạn thanh toán"
-  );
-
-  if (
-    new Date(invoice.dueDate) <
-    new Date(invoice.issueDate)
-  ) {
+} {
     throw new Error(
       "Hạn thanh toán phải sau hoặc bằng ngày lập."
     );

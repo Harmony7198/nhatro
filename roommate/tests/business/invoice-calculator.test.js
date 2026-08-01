@@ -14,7 +14,7 @@ import {
     calculateInvoiceTotal,
     calculateRemainingDebt,
     determineInvoiceStatus
-} from "../../../src/business/invoice-calculator.js";
+} from "../../src/business/invoice-calculator.js";
 
 describe("InvoiceCalculator", () => {
 
