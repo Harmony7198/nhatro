@@ -1,0 +1,288 @@
+/**
+ * dashboard.css
+ */
+
+/* ==========================
+   Dashboard Layout
+========================== */
+
+.dashboard-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.dashboard-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.dashboard-toolbar h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.dashboard-toolbar p {
+    margin: 4px 0 0;
+}
+
+/* ==========================
+   Stat Cards
+========================== */
+
+.stat-card {
+    border: none;
+    border-radius: 14px;
+    transition: all .25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.stat-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.stat-title {
+    color: #6c757d;
+    font-size: .9rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat-unit {
+    font-size: .95rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin-left: 4px;
+}
+
+/* ==========================
+   Charts
+========================== */
+
+.card canvas {
+    width: 100% !important;
+    height: 320px !important;
+}
+
+/* ==========================
+   Alerts
+========================== */
+
+.dashboard-alert-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    padding: 14px;
+
+    border-bottom: 1px solid #ececec;
+
+    gap: 14px;
+
+}
+
+.dashboard-alert-item:last-child {
+
+    border-bottom: none;
+
+}
+
+.dashboard-alert-icon {
+
+    width: 34px;
+
+    text-align: center;
+
+    font-size: 1.2rem;
+
+}
+
+.dashboard-alert-title {
+
+    font-weight: 600;
+
+    margin-bottom: 4px;
+
+}
+
+.dashboard-alert-description {
+
+    color: #6c757d;
+
+    font-size: .92rem;
+
+}
+
+.dashboard-alert-time {
+
+    margin-top: 6px;
+
+    font-size: .82rem;
+
+    color: #999;
+
+}
+
+.dashboard-alert-action {
+
+    white-space: nowrap;
+
+}
+
+.dashboard-alert-empty {
+
+    min-height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* ==========================
+   Empty State
+========================== */
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+}
+
+.empty-state i {
+
+    font-size: 3rem;
+
+    color: #adb5bd;
+
+}
+
+.empty-state h5 {
+
+    margin-top: 20px;
+
+}
+
+.empty-state p {
+
+    color: #6c757d;
+
+}
+
+/* ==========================
+   Loading
+========================== */
+
+.spinner-border {
+
+    width: 3rem;
+
+    height: 3rem;
+
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 992px) {
+
+    .dashboard-toolbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .card canvas {
+
+        height: 280px !important;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .stat-value {
+
+        font-size: 1.45rem;
+
+    }
+
+    .stat-icon {
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: 1.2rem;
+
+    }
+
+    .card canvas {
+
+        height: 240px !important;
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .dashboard-page {
+
+        gap: 18px;
+
+    }
+
+    .dashboard-alert-item {
+
+        flex-direction: column;
+
+    }
+
+    .dashboard-alert-action {
+
+        width: 100%;
+
+    }
+
+}

@@ -1,0 +1,209 @@
+/**
+ * settings.css
+ * Trang Cài đặt & Sao lưu dữ liệu
+ */
+
+.settings-page {
+    animation: fadeIn .2s ease-in-out;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.settings-page .card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .2s ease;
+}
+
+.settings-page .card:hover {
+    transform: translateY(-2px);
+}
+
+.settings-page .card-header {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* ===========================
+   Upload
+=========================== */
+
+#backup-file {
+    cursor: pointer;
+}
+
+#backup-file-info {
+    padding: .75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    word-break: break-word;
+    min-height: 60px;
+}
+
+#backup-validation {
+    min-height: 58px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.settings-page .btn {
+    border-radius: 8px;
+}
+
+.settings-page .btn i {
+    pointer-events: none;
+}
+
+/* ===========================
+   Statistics
+=========================== */
+
+.collection-stat {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background: #fff;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+    transition: .2s ease;
+}
+
+.collection-stat:hover {
+    border-color: #0d6efd;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+}
+
+.collection-name {
+    color: #6c757d;
+    font-size: .9rem;
+    margin-bottom: .5rem;
+}
+
+.collection-total {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* ===========================
+   Danger Zone
+=========================== */
+
+.border-danger {
+    border-width: 2px !important;
+}
+
+#danger-card .alert {
+    font-size: .95rem;
+}
+
+#danger-card .btn-danger {
+    font-weight: 600;
+}
+
+/* ===========================
+   Alerts
+=========================== */
+
+.alert {
+    border-radius: 8px;
+}
+
+/* ===========================
+   Empty
+=========================== */
+
+.empty-state {
+    text-align: center;
+    color: #6c757d;
+    padding: 2rem;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: .75rem;
+}
+
+/* ===========================
+   Loading
+=========================== */
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* ===========================
+   Animation
+=========================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+
+    .collection-total {
+        font-size: 1.35rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .settings-page .card {
+        margin-bottom: 1rem;
+    }
+
+    .collection-stat {
+        padding: .85rem;
+    }
+
+    .collection-total {
+        font-size: 1.25rem;
+    }
+
+    .settings-page .btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .collection-name {
+        font-size: .85rem;
+    }
+
+    .collection-total {
+        font-size: 1.1rem;
+    }
+
+    #backup-file-info {
+        font-size: .85rem;
+    }
+
+}

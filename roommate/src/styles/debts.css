@@ -1,0 +1,220 @@
+/**
+ * debts.css
+ */
+
+.debts-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.debt-card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.debt-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.08);
+}
+
+.debt-card .card-body {
+  padding: 1.25rem;
+}
+
+.debt-card small {
+  display: block;
+  color: #6c757d;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.debt-card h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #dc3545;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.text-end {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.bg-success {
+  background: #198754;
+  color: #fff;
+}
+
+.badge.bg-warning {
+  background: #ffc107;
+  color: #212529;
+}
+
+.badge.bg-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.badge.bg-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.card {
+  border-radius: 0.75rem;
+}
+
+.card-header {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  font-weight: 600;
+}
+
+.form-select,
+.form-control {
+  border-radius: 0.5rem;
+}
+
+.btn {
+  border-radius: 0.5rem;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+a[data-testid="view-invoice"] {
+  text-decoration: none;
+}
+
+a[data-testid="view-invoice"]:hover {
+  text-decoration: underline;
+}
+
+.debt-amount {
+  font-weight: 700;
+  color: #dc3545;
+}
+
+.overdue-days {
+  font-weight: 600;
+}
+
+.summary-number {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.summary-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+
+  .debt-card {
+    margin-bottom: 1rem;
+  }
+
+  .summary-number {
+    font-size: 1.6rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .debts-page .row > div {
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .badge {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+}
+
+@media print {
+
+  body * {
+    visibility: hidden;
+  }
+
+  .debts-page,
+  .debts-page * {
+    visibility: visible;
+  }
+
+  .debts-page {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+  }
+
+  .btn,
+  .form-select,
+  .form-control,
+  .form-check {
+    display: none !important;
+  }
+
+  .card {
+    border: none;
+    box-shadow: none;
+  }
+
+}

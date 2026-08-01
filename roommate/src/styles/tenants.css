@@ -1,0 +1,318 @@
+/**
+ * =====================================================
+ * RoomMate
+ * tenants.css
+ * =====================================================
+ */
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.tenants-page {
+    animation: fadeIn .25s ease;
+}
+
+.tenants-page h2 {
+    font-weight: 600;
+}
+
+.tenants-page .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 .125rem .5rem rgba(0,0,0,.05);
+}
+
+.tenants-page .card-body {
+    padding: 1.25rem;
+}
+
+/* =====================================================
+   TOOLBAR
+===================================================== */
+
+.tenants-page .page-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+#tenant-search,
+#tenant-status-filter {
+    border-radius: 8px;
+}
+
+#tenant-search:focus,
+#tenant-status-filter:focus {
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-responsive {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #f8f9fa;
+    color: #495057;
+    font-size: .875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: background .15s ease;
+}
+
+.table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.table td:last-child {
+    white-space: nowrap;
+}
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.tenant-history-btn,
+.tenant-edit-btn,
+.tenant-archive-btn,
+.tenant-delete-btn {
+    margin-right: .35rem;
+    margin-bottom: .25rem;
+}
+
+.tenant-delete-btn {
+    margin-right: 0;
+}
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge {
+    font-size: .75rem;
+    font-weight: 500;
+    padding: .45rem .75rem;
+    border-radius: 999px;
+}
+
+.badge.bg-success {
+    background-color: #198754 !important;
+}
+
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+.badge.bg-dark {
+    background-color: #212529 !important;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.modal-content {
+    border: none;
+    border-radius: 14px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ececec;
+}
+
+.modal-footer {
+    border-top: 1px solid #ececec;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+.invalid-feedback {
+    display: block;
+    min-height: 18px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    border-radius: 8px;
+}
+
+.btn-sm {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+/* =====================================================
+   CURRENT ROOM
+===================================================== */
+
+.current-room {
+    font-weight: 500;
+}
+
+.current-room.empty {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+[data-testid="empty-state"] {
+    padding: 4rem 2rem;
+}
+
+[data-testid="empty-state"] h5 {
+    font-weight: 600;
+    margin-bottom: .75rem;
+}
+
+[data-testid="empty-state"] p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   HISTORY DIALOG
+===================================================== */
+
+.history-list {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.history-list li {
+    margin-bottom: .5rem;
+}
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+
+.text-phone {
+    white-space: nowrap;
+}
+
+.text-id {
+    font-family: monospace;
+    letter-spacing: .5px;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .table td:last-child,
+    .table th:last-child {
+        min-width: 260px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .tenants-page h2 {
+        font-size: 1.4rem;
+    }
+
+    .tenants-page .card-body {
+        padding: 1rem;
+    }
+
+    .table {
+        font-size: .9rem;
+    }
+
+    .btn-sm {
+        display: inline-block;
+        margin-bottom: .4rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .table {
+        font-size: .85rem;
+    }
+
+    .badge {
+        font-size: .7rem;
+    }
+
+    .modal-dialog {
+        margin: .75rem;
+    }
+
+    [data-testid="empty-state"] {
+        padding: 3rem 1rem;
+    }
+
+    .table td:last-child {
+        min-width: 220px;
+    }
+
+}

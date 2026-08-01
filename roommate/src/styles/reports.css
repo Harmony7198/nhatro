@@ -1,0 +1,187 @@
+/**
+ * reports.css
+ */
+
+/* ==========================
+   Reports Layout
+========================== */
+
+.reports-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ==========================
+   Filters
+========================== */
+
+.report-filters {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.report-filters .form-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.report-filters .form-select,
+.report-filters .form-control {
+    min-height: 42px;
+}
+
+/* ==========================
+   Cards
+========================== */
+
+.reports-page .card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.reports-page .card-header {
+    background: #fff;
+    font-weight: 600;
+    border-bottom: 1px solid #ececec;
+}
+
+.reports-page .card-body {
+    padding: 20px;
+}
+
+/* ==========================
+   Charts
+========================== */
+
+.reports-page canvas {
+    width: 100% !important;
+    height: 340px !important;
+}
+
+/* ==========================
+   Tables
+========================== */
+
+#report-tables .card {
+    margin-bottom: 24px;
+}
+
+.table {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background: #f8f9fa;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.table tbody tr:hover {
+    background: rgba(13,110,253,.05);
+}
+
+.table td,
+.table th {
+    padding: .8rem;
+}
+
+/* ==========================
+   Empty State
+========================== */
+
+.empty-state {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #adb5bd;
+}
+
+.empty-state h5 {
+    margin-top: 18px;
+}
+
+.empty-state p {
+    color: #6c757d;
+}
+
+/* ==========================
+   Loading
+========================== */
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 992px) {
+
+    .reports-page canvas {
+
+        height: 280px !important;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .reports-page {
+
+        gap: 18px;
+
+    }
+
+    .reports-page canvas {
+
+        height: 240px !important;
+
+    }
+
+    .table {
+
+        font-size: .92rem;
+
+    }
+
+    .report-filters .row {
+
+        row-gap: 12px;
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .reports-page canvas {
+
+        height: 220px !important;
+
+    }
+
+    .table-responsive {
+
+        overflow-x: auto;
+
+    }
+
+    .report-filters .btn {
+
+        width: 100%;
+
+    }
+
+}
+

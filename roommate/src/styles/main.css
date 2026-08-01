@@ -1,0 +1,50 @@
+:root {
+  --sidebar-width: 260px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f8f9fa;
+  overflow-x: hidden;
+}
+
+.rm-sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+}
+
+.rm-content {
+  min-height: 100vh;
+}
+
+.rm-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.rm-page-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.rm-menu .nav-link {
+  color: rgba(255,255,255,.85);
+}
+
+.rm-menu .nav-link:hover,
+.rm-menu .nav-link.active {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+}
+
+@media (max-width: 991.98px) {
+
+  .rm-sidebar {
+    display: none;
+  }
+
+}

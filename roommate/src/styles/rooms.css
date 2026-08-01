@@ -1,0 +1,266 @@
+/**
+ * =====================================================
+ * RoomMate
+ * rooms.css
+ * =====================================================
+ */
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.rooms-page {
+    animation: fadeIn .25s ease;
+}
+
+.rooms-page h2 {
+    font-weight: 600;
+}
+
+.rooms-page .card {
+    border: none;
+    border-radius: 12px;
+}
+
+.rooms-page .card-body {
+    padding: 1.25rem;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-responsive {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #f8f9fa;
+    color: #495057;
+    font-size: .875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: background .15s ease;
+}
+
+.table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.table td:last-child {
+    white-space: nowrap;
+}
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.room-detail-btn,
+.room-edit-btn,
+.room-delete-btn {
+    margin-right: .35rem;
+}
+
+.room-delete-btn {
+    margin-right: 0;
+}
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.badge {
+    font-size: .75rem;
+    padding: .45rem .7rem;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+.badge.bg-success {
+    background: #198754 !important;
+}
+
+.badge.bg-primary {
+    background: #0d6efd !important;
+}
+
+.badge.bg-warning {
+    color: #212529 !important;
+}
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+#room-search:focus,
+#room-status-filter:focus,
+#room-price-sort:focus {
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+[data-testid="empty-state"] {
+    padding: 4rem 2rem;
+}
+
+[data-testid="empty-state"] h5 {
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+[data-testid="empty-state"] p {
+    color: #6c757d;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.modal-content {
+    border: none;
+    border-radius: 14px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ececec;
+}
+
+.modal-footer {
+    border-top: 1px solid #ececec;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+.invalid-feedback {
+    display: block;
+    min-height: 18px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    border-radius: 8px;
+}
+
+.btn-sm {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+/* =====================================================
+   TOOLBAR
+===================================================== */
+
+.rooms-page .page-toolbar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .table td:last-child,
+    .table th:last-child {
+        min-width: 220px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .rooms-page h2 {
+        font-size: 1.35rem;
+    }
+
+    .rooms-page .card-body {
+        padding: 1rem;
+    }
+
+    .table {
+        font-size: .9rem;
+    }
+
+    .btn-sm {
+        margin-bottom: .4rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .table {
+        font-size: .85rem;
+    }
+
+    .badge {
+        font-size: .7rem;
+    }
+
+    .modal-dialog {
+        margin: .75rem;
+    }
+
+    [data-testid="empty-state"] {
+        padding: 3rem 1rem;
+    }
+
+}
