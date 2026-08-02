@@ -93,31 +93,27 @@ export function validateInvoice(
   }
 
 
-if (invoice.issueDate) {
+  if (invoice.issueDate) {
+
+    validateDate(
+      invoice.issueDate,
+      "Ngày lập"
+    );
+
+    validateDate(
+      invoice.dueDate,
+      "Hạn thanh toán"
+    );
 
     if (
-        new Date(invoice.dueDate) <
-        new Date(invoice.issueDate)
+      new Date(invoice.dueDate) <
+      new Date(invoice.issueDate)
     ) {
-        throw new Error(
-            "Hạn thanh toán phải sau hoặc bằng ngày lập."
-        );
+      throw new Error(
+        "Hạn thanh toán phải sau hoặc bằng ngày lập."
+      );
     }
 
-} {
-    throw new Error(
-      "Hạn thanh toán phải sau hoặc bằng ngày lập."
-    );
-  }
-
-  if (
-    !Array.isArray(
-      invoice.items
-    )
-  ) {
-    throw new Error(
-      "Danh sách dịch vụ không hợp lệ."
-    );
   }
 
   invoice.items.forEach(
@@ -133,7 +129,9 @@ if (invoice.issueDate) {
       }
 
       if (
-        !item.name
+        !item.name &&
+        !item.description &&
+        !item.type
       ) {
         throw new Error(
           `Tên dịch vụ dòng ${index + 1} là bắt buộc.`

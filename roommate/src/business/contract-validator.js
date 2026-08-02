@@ -18,6 +18,10 @@ import {
   isNonNegativeNumber
 } from "../utils/number-utils.js";
 
+import {
+  hasOverlappingContract
+} from "./contract-utils.js";
+
 /**
  * Validate hợp đồng.
  *
@@ -109,39 +113,16 @@ export function validateContract(
 
   }
 
-for (const item of existingContracts) {
 
-  if (
-    item.id === contract.id
-  ) {
-    continue;
-  }
-
-  if (
-    item.roomId !== contract.roomId
-  ) {
-    continue;
-  }
-
-  if (
-    item.status === CONTRACT_STATUS.CANCELLED
-  ) {
-    continue;
-  }
-
-  if (
-    isDateRangeOverlap(
-      item.startDate,
-      item.endDate,
-      contract.startDate,
-      contract.endDate
+if (
+    hasOverlappingContract(
+        contract,
+        existingContracts
     )
-  ) {
-    throw new Error(
-      "Đã tồn tại hợp đồng trùng thời gian của phòng này."
-    );
-  }
-
+) {
+  throw new Error(
+    "Đã tồn tại hợp đồng trùng thời gian của phòng này."
+  );
 }
 
 }

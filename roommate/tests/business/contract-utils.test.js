@@ -126,7 +126,7 @@ describe("ContractUtils", () => {
                     [
                         {
                             ...existing[0],
-                            status: CONTRACT_STATUS.CANCELLED
+                            status: CONTRACT_STATUS.TERMINATED
                         }
                     ]
                 )

@@ -108,16 +108,9 @@ export function getAll(key) {
  * @throws {Error}
  */
 export function getById(key, id) {
-if (
-  typeof newItem.id !== "string" ||
-  !newItem.id.trim()
-) {
-  newItem.id =
-    globalThis.crypto?.randomUUID?.() ??
-    `id-${Date.now()}-${Math.random()
-      .toString(36)
-      .slice(2)}`;
-}
+  if (typeof id !== "string" || !id.trim()) {
+    throw new Error("ID không hợp lệ.");
+  }
 
   const items = read(key);
 
@@ -125,7 +118,6 @@ if (
 
   return item ? deepClone(item) : null;
 }
-
 /**
  * Kiểm tra dữ liệu tồn tại theo điều kiện.
  *
